@@ -1,5 +1,4 @@
 from app import *
-# make constructors
 
 
 class Client(db.Model):
@@ -32,18 +31,17 @@ class Auto(db.Model):
         self.color = color
         self.release_date = release_date
         self.client_id = client_id
-        # cl = Client.query.get(self.client_id)
-        #self.fk_name = '111'
 
     def __repr__(self):
         return '<Auto %r>' % self.brand
+
     orders = db.relationship('Orderr', backref='auto')
     client_id = db.Column(db.Integer, db.ForeignKey('client.client_id'))
 
 
 defect_in_order = db.Table('defect_in_order',
-                        db.Column('num_or', db.Integer, db.ForeignKey('orderr.num_or')),
-                        db.Column('defect_id', db.Integer, db.ForeignKey('defect.defect_id')))
+                           db.Column('num_or', db.Integer, db.ForeignKey('orderr.num_or')),
+                           db.Column('defect_id', db.Integer, db.ForeignKey('defect.defect_id')))
 
 
 class Orderr(db.Model):
@@ -117,7 +115,7 @@ class Spare(db.Model):
 
     defect_id = db.Column(db.Integer, db.ForeignKey('defect.defect_id'))
 
-    #fk_name = '222'
+    # fk_name = '222'
 
     def __init__(self, name, label, cost, defect_id):
         self.name = name
@@ -129,6 +127,7 @@ class Spare(db.Model):
         return '<Spare %r>' % self.name
 
 
+'''
 def add(title_of_table):
     """Добавление в бд"""
     try:
@@ -160,3 +159,4 @@ def update(value, update_id, attr_title, title_of_table):
 def get_fk(table, id):
     res = table.query.get(id)
     return res
+'''

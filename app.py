@@ -19,6 +19,7 @@ db = SQLAlchemy(app)
 from entities import *
 
 ''' Словарь для того, чтобы можно было брать нужные данные в html'''
+
 tables = {"Клиенты": [Client, 1, 'null', "клиента", " клиенте", "ФИО"],
           "Авто": [Auto, 2, Client, "авто", "б авто", "Марка или номер"],
           "Заказы": [Orderr, 3, Auto, "заказ", " заказе", "Описание"],
@@ -30,7 +31,7 @@ tables = {"Клиенты": [Client, 1, 'null', "клиента", " клиент
 
 @app.route('/')
 def index():
-    return render_template("start.html")
+    return render_template("start_page.html")
 
 
 @app.route('/bd')
@@ -53,16 +54,16 @@ def table_work():
     elif request.args['button'] == "Добавить":
         key = tables[tname][2]
         if key == 'null':
-            return render_template('new.html', n=n, key=key, item=item)
+            return render_template('page_add.html', n=n, key=key, item=item)
         else:
-            return render_template('new.html', n=n, key=key.query.all(), item=item)
+            return render_template('page_add.html', n=n, key=key.query.all(), item=item)
 
     elif request.args['button'] == "Изменить":
         item_1 = tables[tname][4]
-        return render_template('update.html', n=n, table=table.query.all(), item=item, item_1=item_1)
+        return render_template('page_update.html', n=n, table=table.query.all(), item=item, item_1=item_1)
 
     elif request.args['button'] == "Удалить":
-        return render_template('delete.html', n=n, item=item, table=table.query.all())
+        return render_template('page_delete.html', n=n, item=item, table=table.query.all())
 
 
 @app.route('/bd/new', methods=['GET', 'POST'])
@@ -143,8 +144,8 @@ def add():
                 return render_template('show_table.html', table=table.query.all(), tname=tname, n=n, key_name=key_name,
                                        ag=ag)
     if key == "null":
-        return render_template('new.html', n=n, key=key)
-    return render_template('new.html', n=n, key=key.query.all())
+        return render_template('page_add.html', n=n, key=key)
+    return render_template('page_add.html', n=n, key=key.query.all())
 
 
 def bd_add(item):
@@ -292,12 +293,12 @@ def aggreg(t_name):
 
 @app.route('/about')
 def about():
-    return render_template("proger.html")
+    return render_template("proger_page.html")
 
 
 @app.route('/contacts')
 def contacts_page():
-    return render_template("contacts.html")
+    return render_template("contacts_page.html")
 
 
 if __name__ == '__main__':
