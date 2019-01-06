@@ -1,0 +1,125 @@
+{% extends 'bd.html' %}
+
+{% block table %}
+<style>
+.cl {
+    padding-left: 10px;
+     padding-right: 5px;
+ }
+</style>
+    <h1 align="center">{{ tname }}</h1>
+    <form action="/bd/find" method="GET">
+     <div style="display: flex; align-items: center; justify-content: center;">
+         <div class="cl"> <h4>{{ key_name }}: </h4> </div>
+         <textarea rows="1" cols="40" name="pattern"></textarea>
+         <div class="cl"><input type="submit" name="button" value=" Найти "></div>
+    </div>
+    </form>
+
+    <div class="table_2_class" align="center">
+    <table align="center">
+        {% if n==1 %}
+         <thead>
+            <tr><th>ФИО</th><th>Номер телефона</th></tr>
+         </thead>
+
+         <tbody>
+            {% for t in table %}
+               <tr>
+                    <td>{{ t.name }}</td><td>{{ t.phone_number }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+{#           <p align="center">{{ ag }}</p>#}
+     {% else %}
+     {% if n==2 %}
+        <thead>
+            <tr><th>Марка</th><th>Номер</th><th>Цвет</th><th>Дата выпуска</th><th>Владелец</th></tr>
+         </thead>
+         <tbody>
+            {% for t in table %}
+               <tr>
+                    <td>{{ t.brand }}</td>
+                   <td>{{ t.number }}</td>
+                   <td>{{ t.color }}</td>
+                   <td>{{ t.release_date.day }}.{{ t.release_date.month }}.{{ t.release_date.year }}</td>
+                   <td>{{ t.client.name }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+{#          <p align="center">{{ ag }}<br>Шатай трубу</p>#}
+
+     {% else %}
+     {% if n==3 %}
+            <thead>
+            <tr>
+                <th>Номер заказа</th><th>Описание</th><th>Дата регистрации</th><th>Дата завершения</th><th>Авто</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for t in table %}
+               <tr>
+                   <td>{{ t.num_or }}</td><td>{{ t.description }}</td>
+                   <td>{{ t.reg_date.day }}.{{ t.reg_date.month }}.{{ t.reg_date.year }}</td>
+                   <td>{{ t.complete_date.day }}.{{ t.complete_date.month }}.{{ t.complete_date.year }}</td>
+                    <td>{{ t.auto.brand }} {{ t.auto.number }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+{#          <p align="center">{{ ag }}</p>#}
+     {% else %}
+     {% if n==4 %}
+                <thead>
+            <tr>
+                <th>ФИО</th><th>Дата рождения</th><th>З/П</th><th>Должность</th><th>Режим работы</th>
+            </tr>
+         </thead>
+         <tbody>
+            {% for t in table %}
+               <tr>
+                    <td>{{ t.name }}</td>
+                   <td>{{ t.birthdate.day }}.{{ t.birthdate.month }}.{{ t.birthdate.year }}</td>
+                   <td>{{ t.salary }}</td> <td>{{ t.position }}</td><td>{{ t.operation_mode }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+{#          <p align="center">{{ ag }}</p>#}
+     {% else %}
+     {% if n==5 %}
+          <thead>
+            <tr><th>Название</th><th>Марка</th><th>Стоимость</th><th>Неисправность</th></tr>
+         </thead>
+         <tbody>
+            {% for t in table %}
+               <tr>
+                    <td>{{ t.name }}</td><td>{{ t.label }}</td><td>{{ t.cost }}</td><td>{{ t.defect.name }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+{#          <p align="center">{{ ag }}</p>#}
+     {% else %}
+     {% if n==6 %}
+        <thead>
+            <tr><th>Номер</th><th>Название</th></tr>
+         </thead>
+         <tbody>
+            {% for t in table %}
+               <tr>
+                    <td>{{ t.defect_id }}</td><td>{{ t.name}}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    {% endif %}
+    <p align="center">
+        {% for a in ag %}
+            {{ a }}<br>
+    {% endfor %}
+    </table>
+      </div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} Разрабам {% endblock %}
+{% block content %}
+    <style>
+    body{
+        background-image: url(static/back.jpg);
+        background-color: #ffff17; /* Цвет фона веб-страницы */
+
+   }
+ .tt {
+        text-align: center;
+        font-size: 50pt;
+        font-family: "Comic Sans MS";
+        {#margin: auto;#}
+
+         {#margin-top: 100px;#}
+         color: #fff7f4;
+         width: 800px;
+         min-width: 400px;
+         height: 100px;
+         margin: 170px auto;
+         background: #370aff;
+         border-radius: 15px;
+         padding: 5px;
+         box-shadow: 1px -1px 1px 0px #F3BE63;
+ }
+a
+{
+ color: #ffff17;
+    text-decoration: none;
+}
+    </style>
+    <div class="tt">
+
+            <a href="https://www.python.org/">Python</a> и
+            <a href="http://flask.pocoo.org/">Flask</a> форэва!
+
+    </div>
+{% endblock %}

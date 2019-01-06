@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} База данных автосервиса{% endblock %}
+{% block content %}
+
+{%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+
+<form action="/bd/table" method="GET">
+<table  style="border-spacing: 10px 0;">
+    <tr>
+        <td>
+            <h4>Выберите таблицу:</h4>
+        </td>
+        <td>
+            <select name="table" required>
+{#                <option disabled selected value="null">---</option>#}
+				<option value="Клиенты">Клиенты</option>
+                <option value="Авто">Авто</option>
+                <option value="Заказы">Заказы</option>
+                <option value="Сотрудники">Сотрудники</option>
+                <option value="Запчасти">Запчасти</option>
+                <option value="Неисправности">Неисправности</option>
+            </select>
+        </td>
+        <td width="25" align="center"><input type="submit" name="button" value="Показать"></td>
+        <td width="25" align="center"><input type="submit" name="button" value="Добавить"></td>
+        <td width="25" align="center"><input type="submit" name="button" value="Изменить"></td>
+        <td width="25" align="center"><input type="submit" name="button" value="Удалить"></td>
+    </tr>
+</table>
+</form>
+{% block table %}   {% endblock %}
+
+{% endblock %}

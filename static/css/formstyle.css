@@ -1,0 +1,58 @@
+@charset "windows-1251";
+
+.form{
+    width: 200px;
+    min-width: 400px;
+    height: 250px;
+    margin: 50px auto;
+    background: yellow;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 100px;
+    box-shadow: 1px -1px 1px 0px #F3BE63;
+}
+.in1{
+    width:224px;
+    margin: 0px;
+    padding: 0px;
+}
+.in2{
+    width: 225px;
+    margin: 0px;
+    padding: 0px;
+}
+.in3{
+    width: 237px;
+    margin: 0px;
+    padding: 0px;
+}
+.in4
+{
+  width: 179px;
+    margin: 0px;
+    padding: 0px;
+}
+.in5{
+    margin: 0px 115px;
+    padding: 0px;
+    width: 85px;
+    height: 35px;
+    box-shadow: 1px -1px 0px 1px #F3BE63;
+}
+
+.h2 {
+  margin-left: 50px
+}
+
+    input:hover {
+        transition: .2s;
+        box-shadow: inset 0px 0px 2px 0px #000;
+
+    }
+[type="submit"]{
+    border-radius: 5px;
+    background: -moz-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: -o-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: -ms-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: -webkit-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );

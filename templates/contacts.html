@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} О нас {% endblock %}
+{% block content %}
+<style>
+    body{
+        background-image: url(static/back.jpg);
+        background-color: #ffff17; /* Цвет фона веб-страницы */
+
+   }
+ .tt {
+        text-align: center;
+        font-size: 30pt;
+        font-family: "Arial";
+        {#margin: auto;#}
+
+         {#margin-top: 100px;#}
+         color: #fff7f4;
+         width: 1000px;
+         min-width: 400px;
+         height: 150px;
+         margin: 170px auto;
+         background: #370aff;
+         border-radius: 15px;
+         padding: 5px;
+         box-shadow: 1px -1px 1px 0px #F3BE63;
+ }
+a
+{
+ color: #ffff17;
+}
+    </style>
+{#    style="background-color: #ffff17; text-align: center; font-size: 30pt; font-family: 'Arial Black'; margin-top: 100px; color: #111010;"#}
+    <div class="tt">
+
+           Если у вас возникли вопросы, коммерческие предложения или пожелания - вы всегда можете написать нам на
+            <a href="mailto:kitsul.daniil@yandex.ru">почту</a>
+
+    </div>
+{% endblock %}

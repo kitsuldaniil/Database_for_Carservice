@@ -1,0 +1,192 @@
+{% extends 'bd.html' %}
+
+{% block table %}
+<style>
+
+.form{
+    width: 200px;
+    min-width: 400px;
+    min-height: 220px;
+    max-height: 400px;
+    height: 350px;
+    margin: 50px auto;
+    background: yellow;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 100px;
+    box-shadow: 1px -1px 1px 0px #F3BE63;
+}
+.in1{
+    width:224px;
+    margin: 0px;
+    padding: 0px;
+}
+.in2{
+    width: 225px;
+    margin: 0px;
+    padding: 0px;
+}
+.in3{
+    width: 237px;
+    margin: 0px;
+    padding: 0px;
+}
+.in4
+{
+  width: 179px;
+    margin: 0px;
+    padding: 0px;
+}
+.in6
+{
+    width: 148px;
+    margin: 0px;
+    padding: 0px;
+}
+.in7
+{
+    width: 170px;
+    margin: 0px;
+    padding: 0px;
+}
+.in8
+{
+    width: 175px;
+    margin: 0px;
+    padding: 0px;
+}
+.in9
+{
+    width: 159px;
+    margin: 0px;
+    padding: 0px;
+}
+.in10
+{
+    width: 185px;
+    margin: 0px;
+    padding: 0px;
+}
+.in11
+{
+    width: 163px;
+    margin: 0px;
+    padding: 0px;
+}
+.in12
+{
+    width: 244px;
+    margin: 0px;
+    padding: 0px;
+}
+.in13
+{
+    width: 214px;
+    margin: 0px;
+    padding: 0px;
+}
+.in5{
+    margin: 0px 72px;
+    padding: 0px;
+    width: 170px;
+    height: 35px;
+    box-shadow: 1px -1px 0px 1px #F3BE63;
+}
+
+h2{
+   alignment: center;
+}
+    input:hover {
+        transition: .2s;
+        box-shadow: inset 0px 0px 2px 0px #000;
+
+    }
+       .hh4 {
+    margin-bottom: 5px;
+}
+[type="submit"]{
+    border-radius: 5px;
+    background: -moz-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: -o-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: -ms-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: -webkit-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+
+.label }
+</style>
+
+<form action="/bd/update" class="form" method="POST">
+    <h2>Изменение данных о{{ item_1 }}</h2>
+    <h4 class="hh4"> Выберите {{ item }}: </h4>
+        <select name="items" required>
+         {% if n==1 %}
+                    {%for it in table%}
+                    <option value={{it.client_id}}>{{it.name+' ('+it.phone_number+')'}}</option>
+                    {% endfor %}
+        </select>
+        </label></p>
+          <p>
+        <label for="name">ФИО: <input type="text" id="name" class="in1" name="name" required placeholder="Иванов Иван Иванович" autofocus><span></span></label>
+    </p>
+
+    <p><label for="phone_number">Номер телефона: <input type="tel" id="phone_number" class="in6" name="phone_number" placeholder="89806667788"><span></span></label></p>
+{% else %}
+{% if n==2 %}
+     {%for it in table%}
+                    <option value={{it.auto_id}}>{{it.brand+' '+it.number}}</option>
+                    {% endfor %}
+    </select>
+        </label></p>
+
+     <p><label for="brand">Марка: <input type="text" id="brand" class="in1" name="brand" required placeholder="BMW" autofocus><span></span></label></p>
+    <p><label for="num">Номер: <input type="text" id="num" class="in2" name="number" placeholder="V660RT 123"><span></span></label></p>
+    <p><label for="color">Цвет: <input type="text" id="color" class="in3" name="color" required placeholder="Чёрный"></label></p>
+    <p><label for="release_date">Дата выпуска: <input type="date" id="release_date" class="in4" name="release_date" placeholder="20.11.2011"><span></span></label></p>
+
+{% else %}
+{% if n==3 %}
+    {%for it in table%}
+                   <option value={{it.num_or}}>{{it.num_or|string+' ('+it.description+')'}}</option>
+                    {% endfor %}
+     </select> </label></p>
+     <p><label for="des">Описание: <input type="text" id="des" class="in1" name="description"><span></span></label></p>
+    <p><label for="reg_date">Дата регистрации: <input type="date" id="reg_date" class="in7" name="reg_date" placeholder="01.01.2001"><span></span></label></p>
+    <p><label for="complete_date">Дата завершения: <input type="date" id="complete_date" class="in8" name="complete_date" required placeholder="11.11.2012"></label></p>
+{% else %}
+{% if n==4 %}
+    {%for it in table%}
+                    <option value={{it.worker_id}}>{{it.name+' ('+it.position+')'}}</option>
+                    {% endfor %}
+     </select> </label></p>
+    <p><label for="name">ФИО: <input type="text" id="name" class="in1" name="name" required placeholder="Степан Степанович Степанов" autofocus><span></span></label></p>
+    <p><label for="birthdate">Дата рождения: <input type="date" id="birthdate" class="in9" name="birthdate"><span></span></label></p>
+    <p><label for="salary">З/П: <input type="number" step="0.01" id="salary" class="in3" name="salary" required placeholder="30000.0"></label></p>
+    <p><label for="position">Должность: <input type="text" id="position" class="in10" name="position" placeholder="Автослесарь"><span></span></label></p>
+    <p><label for="operation_mode">Режим работы: <input type="text" id="operation_mode" class="in11" name="operation_mode"><span></span></label></p>
+
+{% else %}
+{% if n==5 %}
+    {%for it in table%}
+                    <option value={{it.spare_id}}>{{it.name+' '+it.label+' '+it.cost|string}}</option>
+                    {% endfor %}
+     </select> </label></p>
+
+    <p><label for="name">Название: <input type="text" id="name" class="in1" name="name" autofocus><span></span></label></p>
+    <p><label for="label">Марка: <input type="text" id="label" class="in12" name="label" placeholder="Автострой"><span></span></label></p>
+    <p><label for="cost">Стоимость: <input type="number" step="0.01" id="cost" class="in13 name="cost" required placeholder="5000"></label></p>
+{% else %}
+{% if n==6 %}
+    {%for it in table%}
+                    <option value={{it.defect_id}}>{{it.name}}</option>
+                    {% endfor %}
+    </select> </label></p>
+    <p><label for="name">Название: <input type="text" id="name" class="in3" name="name" required placeholder="Введите неисправность"></label></p>
+{% endif %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endif %}
+{% endif %}
+ <p><input type="submit" width="100px" class="in5" name="button" value="Изменить {{ item }}"></input></p>
+</form>
+{% endblock %}

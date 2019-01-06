@@ -1,0 +1,172 @@
+{% extends 'bd.html' %}
+
+{% block table %}
+    <style>
+
+.form{
+    width: 200px;
+    min-width: 400px;
+    height: 190px;
+    margin: 50px auto;
+    background: yellow;
+    border-radius: 15px;
+    padding: 5px;
+    padding-left: 100px;
+    box-shadow: 1px -1px 1px 0px #F3BE63;
+}
+.in1{
+    width:224px;
+    margin: 0px;
+    padding: 0px;
+}
+.in2{
+    width: 225px;
+    margin: 0px;
+    padding: 0px;
+}
+.in3{
+    width: 237px;
+    margin: 0px;
+    padding: 0px;
+}
+.in4
+{
+  width: 179px;
+    margin: 0px;
+    padding: 0px;
+}
+.in6
+{
+    width: 148px;
+    margin: 0px;
+    padding: 0px;
+}
+.in7
+{
+    width: 170px;
+    margin: 0px;
+    padding: 0px;
+}
+.in8
+{
+    width: 175px;
+    margin: 0px;
+    padding: 0px;
+}
+.in9
+{
+    width: 159px;
+    margin: 0px;
+    padding: 0px;
+}
+.in10
+{
+    width: 185px;
+    margin: 0px;
+    padding: 0px;
+}
+.in11
+{
+    width: 163px;
+    margin: 0px;
+    padding: 0px;
+}
+.in12
+{
+    width: 244px;
+    margin: 0px;
+    padding: 0px;
+}
+.in13
+{
+    width: 214px;
+    margin: 0px;
+    padding: 0px;
+}
+.in5{
+    margin: 4px 72px 5px;
+    padding: 8px;
+    width: 170px;
+    height: 35px;
+    box-shadow: 1px -1px 0px 1px #F3BE63;
+}
+
+
+    input:hover {
+        transition: .2s;
+        box-shadow: inset 0px 0px 2px 0px #000;
+
+    }
+[type="submit"]{
+    border-radius: 5px;
+    background: -moz-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: -o-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: -ms-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: -webkit-linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+    background: linear-gradient(bottom, #ffffff 5%, #D2D2D2 100% );
+
+}
+
+    .hh4 {
+    margin-bottom: 5px;
+}
+    h2
+    {
+        margin-left: 50px;
+    }
+    .sel
+    {
+        width: 330px;
+    }
+</style>
+
+ <form action="/bd/delete" class="form" method="GET">
+ <h2>Удаление {{ item }}</h2>
+
+<h4 class="hh4"> Выберите {{ item }}: </h4>
+
+<select name="items" class="sel" required>
+ {% if n==1 %}
+
+{#                    <option disabled selected value="null">---</option>#}
+                    {%for it in table%}
+                    <option value={{it.client_id}}>{{it.name+' ('+it.phone_number+')'}}</option>
+                    {% endfor %}
+
+{% else %}
+{% if n==2 %}
+    {%for it in table%}
+                    <option value={{it.auto_id}}>{{it.brand+' '+it.number}}</option>
+                    {% endfor %}
+ {% else %}
+ {% if n==3 %}
+     {%for it in table%}
+                   <option value={{it.num_or}}>{{it.num_or|string+' ('+it.description+')'}}</option>
+                    {% endfor %}
+ {% else %}
+ {% if n==4 %}
+     {%for it in table%}
+                    <option value={{it.worker_id}}>{{it.name+' ('+it.position+')'}}</option>
+                    {% endfor %}
+ {% else %}
+ {% if n==5 %}
+     {%for it in table%}
+                    <option value={{it.spare_id}}>{{it.name+' '+it.label+' '+it.cost|string}}</option>
+                    {% endfor %}
+ {% else %}
+ {% if n==6 %}
+     {%for it in table%}
+                    <option value={{it.defect_id}}>{{it.name}}</option>
+                    {% endfor %}
+ {% endif %}
+  {% endif %}
+  {% endif %}
+  {% endif %}
+  {% endif %}
+  {% endif %}
+ </select>
+
+{#  <input align="center" type="submit" name="button" value="Удалить {{ item }}">#}
+  <p><input type="submit" width="100px" class="in5" name="button" value="Удалить {{ item }}"></input></p>
+ </form>
+{% endblock %}
